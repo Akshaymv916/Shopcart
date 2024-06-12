@@ -1,0 +1,30 @@
+{% extends "shop/layouts/main.html" %}
+{% block content %}
+
+<section class=" py-5 my-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h4 class="mb-3">Categories</h4>
+                <hr style="border-color:#b8bfc2;">
+            </div>
+
+                {% for item in category %}
+                    <div class="col-md-4 col-lg-3">
+                        <div class="card my-3" style=" height:45rem;">
+                            <img src="{{item.image.url}} " class="card-image-top" alt="categories">
+                                <a href="{% url 'collections' item.name %}">
+                                    <div class="card-body">
+                                        <h5 style="color:red;">{{item.name}}</h5>
+                                        <p class"card-text" style="color:black">{{item.description}}</p>
+                                    </div>
+                                </a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+</section>
+{% endblock content %}
